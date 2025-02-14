@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Loan Pre-Approval Questions</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 24px;
+            color: #f15a24;
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input[type="range"] {
+            width: 100%;
+        }
+        output {
+            font-size: 16px;
+            display: block;
+            text-align: right;
+            color: #f15a24;
+            font-weight: bold;
+        }
+        button {
+            background-color: #f15a24;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #d04d1d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Home Loan Pre-Approval Questions</h1>
+        </header>
+        <form action="https://formspree.io/f/your_form_endpoint" method="POST">
+
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="credit-score">What is your credit score?</label>
+            <input type="range" id="credit-score" name="credit-score" min="300" max="850" value="650" oninput="creditScoreOutput.value = creditScore.value">
+            <output name="creditScoreOutput" id="creditScoreOutput">650</output>
+
+            <label for="employment-status">Are you a W-2 employee or 1099 (self-employed)?</label>
+            <select name="employment-status" required>
+                <option value="">Select...</option>
+                <option value="W-2">W-2 (Has Employer)</option>
+                <option value="1099">1099 (Self-Employed)</option>
+            </select>
+
+            <label for="yearly-income">What's your yearly income?</label>
+            <input type="range" id="yearly-income" name="yearly-income" min="20000" max="500000" step="1000" value="50000" oninput="incomeOutput.value = yearlyIncome.value">
+            <output name="incomeOutput" id="incomeOutput">$50,000</output>
+
+            <label for="down-payment">How much money do you have for your down payment and closing cost?</label>
+            <input type="range" id="down-payment" name="down-payment" min="0" max="200000" step="5000" value="20000" oninput="downPaymentOutput.value = '$' + downPayment.value">
+            <output name="downPaymentOutput" id="downPaymentOutput">$20,000</output>
+
+            <label for="job-years">How many years have you been with your job?</label>
+            <input type="number" name="job-years" min="0" placeholder="Enter number of years">
+
+            <label for="job-type">What type of job do you work?</label>
+            <input type="text" name="job-type" placeholder="e.g., Sales, Tech, Healthcare">
+
+            <label for="co-applicant">Will someone else apply for the loan with you? If so, who?</label>
+            <input type="text" name="co-applicant" placeholder="Enter co-applicant's name or 'No'">
+
+            <label for="current-home">Do you currently own a home?</label>
+            <select name="current-home" required>
+                <option value="">Select...</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="working-with-realtor">Are you working with any other realtors?</label>
+            <select name="working-with-realtor" required>
+                <option value="">Select...</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="talked-to-lenders">Have you talked to any lenders yet?</label>
+            <select name="talked-to-lenders" required>
+                <option value="">Select...</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        const creditScore = document.getElementById('credit-score');
+        const yearlyIncome = document.getElementById('yearly-income');
+        const downPayment = document.getElementById('down-payment');
+    </script>
+</body>
+</html>
